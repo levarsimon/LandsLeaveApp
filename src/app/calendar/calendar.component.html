@@ -1,4 +1,7 @@
-
+<div>
+    <p></p>
+</div>
+<div class="calendar-container">
 <div class="clr-row text-center">
     <div class="clr-col-md-4">
         <div class="btn-group">
@@ -26,7 +29,7 @@
     <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"></mwl-calendar-week-view>
     <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"></mwl-calendar-day-view>
 </div>
-    
+</div>    
 <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
       
 <br /><br />
