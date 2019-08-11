@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-leave-form',
@@ -7,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaveFormComponent implements OnInit {
 
-  constructor() { }
+  requestForm:FormGroup;
+  
+  constructor(private formBuilder: FormBuilder) {
+    
+    this.requestForm = this.formBuilder.group({
+      reason: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required]
+    });
+  }
+
+  submit() {
+    if (this.requestForm.valid) {
+      console.log(this.requestForm.value);
+    }
+  }
 
   ngOnInit() {
   }
