@@ -23,6 +23,10 @@
     "@clr/icons": "2.1.0",
     "@clr/ui": "2.1.0",
     "@webcomponents/custom-elements": "^1.0.0",
+    "angular-calendar": "^0.27.14",
+    "angularx-flatpickr": "^6.1.0",
+    "date-fns": "^1.30.1",
+    "flatpickr": "^4.6.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

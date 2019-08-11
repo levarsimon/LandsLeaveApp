@@ -1,23 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { ApplyRoutingModule } from './apply/app-routing.module';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+//import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppComponent } from './app.component';
+import { ApplyComponent } from './apply/apply.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { ApplyComponent } from './apply/apply.component';
-
-import { ApplyRoutingModule } from './apply/app-routing.module';
 import { LeaveFormComponent } from './leave-form/leave-form.component';
 import { TimeoffFormComponent } from './timeoff-form/timeoff-form.component';
 import { ResumptionFormComponent } from './resumption-form/resumption-form.component';
 import { LeaveHistoryComponent } from './leave-history/leave-history.component';
 import { LeaveRequestComponent } from './leave-request/leave-request.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,8 @@ import { LeaveRequestComponent } from './leave-request/leave-request.component';
     TimeoffFormComponent,
     ResumptionFormComponent,
     LeaveHistoryComponent,
-    LeaveRequestComponent
+    LeaveRequestComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,16 @@ import { LeaveRequestComponent } from './leave-request/leave-request.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     ApplyRoutingModule,
+    CommonModule,
+    FormsModule,
+    //NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
+ exports: [AppComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
