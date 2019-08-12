@@ -8,7 +8,7 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 })
 export class LeaveFormComponent implements OnInit {
 
-  requestForm:FormGroup;
+  requestForm: FormGroup;
   
   constructor(private formBuilder: FormBuilder) {
     
@@ -22,7 +22,12 @@ export class LeaveFormComponent implements OnInit {
   submit() {
     if (this.requestForm.valid) {
       console.log(this.requestForm.value);
+      this.requestForm.reset();
     }
+  }
+
+  resetForm() {
+    this.requestForm.reset();
   }
 
   ngOnInit() {

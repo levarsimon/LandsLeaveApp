@@ -1,0 +1,20 @@
+<clr-main-container>
+    <app-header></app-header>
+    <div class="content-container">
+        <nav class="sidenav" [clr-nav-level]="2">
+            <section class="sidenav-content">
+                <section class="nav-group">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" routerLink="/apply/employee_list" routerLinkActive="active">Apply for Leave</a></li>
+                        <li><a class="nav-link" routerLink="/apply/search" routerLinkActive="active">Apply for Leave</a></li>
+                        <li><a class="nav-link" routerLink="/apply/department" routerLinkActive="active">Apply for Time Off</a></li>
+                        <li><a class="nav-link" routerLink="/apply/division" routerLinkActive="active">Apply for Resumption</a></li>
+                    </ul>
+                </section>
+            </section>
+        </nav>
+        <div class="router-outlet-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</clr-main-container>

@@ -9,15 +9,20 @@
      <!--clr-control-helper>Helper text that shows while it is pristine and valid</clr-control-helper-->
         <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
     </clr-textarea-container>
+    <br />
     <clr-input-container>
         <label>Start date</label>
         <input clrInput type="date" placeholder="Start date" formControlName="startDate"/>      
         <clr-control-error *clrIfError="required">Start date required</clr-control-error>
     </clr-input-container>
+    <br />
     <clr-input-container>
         <label>End date</label>
         <input clrInput type="date" placeholder="End date" formControlName="endDate"/>     
         <clr-control-error *clrIfError="required">End date required</clr-control-error>
     </clr-input-container>
-    <button class="btn">Submit</button>
+    <br />
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn" type="button" (click)="resetForm()">Reset</button>
 </form>
+<br /><br />

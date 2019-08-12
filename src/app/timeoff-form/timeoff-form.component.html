@@ -1,1 +1,28 @@
-<p>timeoff-form works!</p>
+<app-calendar></app-calendar>
+
+<p></p>
+
+<form clrForm [formGroup]="requestForm" (ngSubmit)="submit()">
+    <clr-textarea-container>
+        <label>Reason for time off</label>
+        <textarea clrTextarea  rows="5" cols="30" placeholder="Type reason here" formControlName="reason"></textarea>
+     <!--clr-control-helper>Helper text that shows while it is pristine and valid</clr-control-helper-->
+        <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
+    </clr-textarea-container>
+    <br />
+    <clr-input-container>
+        <label>Start date</label>
+        <input clrInput type="datetime" placeholder="Start date" formControlName="startDate"/>      
+        <clr-control-error *clrIfError="required">Start date required</clr-control-error>
+    </clr-input-container>
+    <br />
+    <clr-input-container>
+        <label>End date</label>
+        <input clrInput type="datetime" placeholder="End date" formControlName="endDate"/>     
+        <clr-control-error *clrIfError="required">End date required</clr-control-error>
+    </clr-input-container>
+    <br />
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn" type="button" (click)="resetForm()">Reset</button>
+</form>
+<br /><br />

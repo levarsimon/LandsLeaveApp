@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-timeoff-form',
@@ -7,7 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeoffFormComponent implements OnInit {
 
-  constructor() { }
+  requestForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+
+    this.requestForm = this.formBuilder.group({
+      reason: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required]
+    });
+  }
+
+  submit() {
+    if (this.requestForm.valid) {
+      console.log(this.requestForm.value);
+      this.requestForm.reset();
+    }
+  }
+
+  resetForm() {
+    this.requestForm.reset();
+  }
 
   ngOnInit() {
   }

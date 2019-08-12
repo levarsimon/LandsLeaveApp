@@ -12,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-//import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ApplyComponent } from './apply/apply.component';
@@ -26,6 +25,8 @@ import { ResumptionFormComponent } from './resumption-form/resumption-form.compo
 import { LeaveHistoryComponent } from './leave-history/leave-history.component';
 import { LeaveRequestComponent } from './leave-request/leave-request.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { StaffInformationComponent } from './staff-information/staff-information.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     ResumptionFormComponent,
     LeaveHistoryComponent,
     LeaveRequestComponent,
-    CalendarComponent
+    CalendarComponent,
+    StaffInformationComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +53,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     ApplyRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    //NgbModalModule,
+    ReactiveFormsModule,    
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
