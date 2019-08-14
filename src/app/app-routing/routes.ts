@@ -5,15 +5,14 @@ import {ProfileComponent} from '../profile/profile.component';
 import {LoginPageComponent} from '../login-page/login-page.component';
 import {LeaveHistoryComponent} from '../leave-history/leave-history.component';
 import {LeaveRequestComponent} from '../leave-request/leave-request.component';
-//import {StaffInformationComponent} from '../staff-information/staff-information.component';
-//import {EmployeeListComponent} from '../employee-list/employee-list.component';
+import {StaffInformationComponent} from '../staff-information/staff-information.component';
 
 export const routes: Routes = [
   {path: 'home',  component: HomeComponent },
   {path: 'profile', component: ProfileComponent },
   {path: 'login', component: LoginPageComponent },
-  {path:'history', component: LeaveHistoryComponent},
-  {path:'requests', component: LeaveRequestComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full' },
-  //{path: 'employee_information', component: StaffInformationComponent}  
+  {path: 'history', component: LeaveHistoryComponent},
+  {path: 'requests', component: LeaveRequestComponent},
+  {path: 'staff_information', component: StaffInformationComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full' }   
 ];
