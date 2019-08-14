@@ -14,8 +14,8 @@ export class TimeoffFormComponent implements OnInit {
 
     this.requestForm = this.formBuilder.group({
       reason: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required]
+      startTime: ['', Validators.required],
+      endTime: ['', Validators.required]
     });
   }
 
