@@ -1,17 +1,18 @@
-<clr-main-container>
-  <div class="content-container">
-    <div class="content-area">
-        <br /><br />
-    <table class="table">
-      <thead>
+<!--div class="content-container">
+  <div class="clr-row clr-justify-content-start">
+    <div class="clr-col-10">
+      <h1>Leave Summary</h1>
+
+      <table class="table">
+        <thead>
           <tr>
             <th>Leave Type</th>
             <th>Total Days</th>
             <th>Days Used</th>
             <th>Days Remaining</th>
           </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
           <tr>
             <td>Sick Leave (Certified)</td>
             <td>0</td>
@@ -48,8 +49,73 @@
             <td>0</td>
             <td>0</td>
           </tr>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+  </div>    
+</div-->
+
+
+
+<!--clr-main-container>
+    <div class="content-container">
+      <div class="content-area">
+          <br /><br />
+      
+    </div>
   </div>
-</div>
-</clr-main-container>
+  </clr-main-container-->
+
+
+
+
+  <clr-main-container>  
+    <br />
+    <h1>Leave Summary</h1>
+    <div class="content-container clr-justify-content-center">
+      <clr-datagrid>
+        <clr-dg-column>Leave Type</clr-dg-column>
+        <clr-dg-column>Total Days</clr-dg-column>
+        <clr-dg-column>Days Used</clr-dg-column>
+        <clr-dg-column>Days Remaining</clr-dg-column>
+      
+        <clr-dg-row>
+          <clr-dg-cell>Sick Leave (Certified)</clr-dg-cell>
+          <clr-dg-cell>28</clr-dg-cell>
+          <clr-dg-cell>14</clr-dg-cell>
+          <clr-dg-cell>14</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-row>
+          <clr-dg-cell>Sick Leave (Uncertified)</clr-dg-cell>
+          <clr-dg-cell>7</clr-dg-cell>
+          <clr-dg-cell>2</clr-dg-cell>
+          <clr-dg-cell>5</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-row>
+          <clr-dg-cell>Special Leave</clr-dg-cell>
+          <clr-dg-cell>0</clr-dg-cell>
+          <clr-dg-cell>0</clr-dg-cell>
+          <clr-dg-cell>0</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-row>
+          <clr-dg-cell>Compassionate Leave</clr-dg-cell>
+          <clr-dg-cell>0</clr-dg-cell>
+          <clr-dg-cell>0</clr-dg-cell>
+          <clr-dg-cell>0</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-row>
+          <clr-dg-cell>Vacation Leave</clr-dg-cell>
+          <clr-dg-cell>35</clr-dg-cell>
+          <clr-dg-cell>14</clr-dg-cell>
+          <clr-dg-cell>21</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-row>
+          <clr-dg-cell>Study Leave</clr-dg-cell>
+          <clr-dg-cell>28</clr-dg-cell>
+          <clr-dg-cell>14</clr-dg-cell>
+          <clr-dg-cell>14</clr-dg-cell>
+        </clr-dg-row>        
+        </clr-datagrid>
+      </div>
+      <br /><br />
+    </clr-main-container>

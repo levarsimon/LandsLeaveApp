@@ -1,21 +1,21 @@
 <clr-main-container>
-    <app-header></app-header>
-    <div class="content-container">
-      <nav class="sidenav" [clr-nav-level]="2">
-             <section class="sidenav-content">
-               <section class="nav-group">
-                   <label for="tabexample2">Applications</label>
-                   <ul class="nav-list">
-                       <li><a class="nav-link" routerLink="/history/summary" routerLinkActive="active">Leave Summary</a></li>
-                       <li><a class="nav-link" routerLink="/history/annual" routerLinkActive="active">Annual Leave</a></li>
-                       <li><a class="nav-link" routerLink="/history/sick" routerLinkActive="active">Sick Leave</a></li>
-                       <li><a class="nav-link" routerLink="/history/nopay" routerLinkActive="active">No-pay Leave</a></li>
-                       <li><a class="nav-link" routerLink="/history/special" routerLinkActive="active">Special Leave</a></li>
-                       <li><a class="nav-link" routerLink="/history/study" routerLinkActive="active">Study Leave</a></li>
-                   </ul>
-               </section>
-                 </section>
-         </nav>
-         <router-outlet></router-outlet>
-      </div>
-  </clr-main-container>
+  <app-header></app-header>
+  <div class="content-container">
+    <nav class="sidenav" [clr-nav-level]="2">
+      <section class="sidenav-content">
+        <section class="nav-group">
+          <label for="tabexample2">Leave Types</label>
+          <ul class="nav-list">
+            <li><a class="nav-link" routerLink="/history/summary" routerLinkActive="active">Leave Summary</a></li>
+            <li><a class="nav-link" routerLink="/history/annual" routerLinkActive="active">Annual Leave</a></li>
+            <li><a class="nav-link" routerLink="/history/sick" routerLinkActive="active">Sick Leave</a></li>
+            <li><a class="nav-link" routerLink="/history/nopay" routerLinkActive="active">No-pay Leave</a></li>
+            <li><a class="nav-link" routerLink="/history/special" routerLinkActive="active">Special Leave</a></li>
+            <li><a class="nav-link" routerLink="/history/study" routerLinkActive="active">Study Leave</a></li>
+          </ul>
+        </section>
+      </section>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</clr-main-container>
