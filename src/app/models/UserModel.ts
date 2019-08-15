@@ -1,11 +1,16 @@
 export class User{
   id: number;
-  subdivisionID: number;
   firstName: string;
   lastName:string;
+  email:string;
+  dOB= new Date();
   jobTitle:string;
   employeeType:string;
   employeeBand:number;
+  subdivisionID: number;
+  subdivisionName: string;
+  divisionID:number;
+  divisionName: string;
   onLeave:boolean;
   annualLeft:number;
   sickLeft:number;
@@ -15,9 +20,22 @@ export class User{
   conferencesSpecialLeft:number;
   meetingSpecialLeft:number;
   activitiesSpecialLeft: number;
-  dOB= new Date(0,0,0);
-  createdOn= new Date(0,0,0,0,0);
-  createdBy:string;
-  modifiedOn= new Date(0,0,0,0,0);
-  modifiedBy:string;
+
+constructor(firstName:string,lastName:string,jobTitle:string){
+  this.firstName=firstName;
+  this.lastName=lastName;
+  this.jobTitle=jobTitle;
+}
+
+  leave():string{
+    if(this.onLeave==true){
+      return "You are currently on leave."
+    }else{
+      return "You are currently on duty."
+    }
+  }
+
+  fullName(): string{
+    return this.firstName + " " + this.lastName;
+  }
 }

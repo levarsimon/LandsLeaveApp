@@ -1,27 +1,60 @@
-<app-calendar></app-calendar>
+<!--app-calendar></app-calendar>
+
 <p></p>
+
 <form clrForm [formGroup]="requestForm" (ngSubmit)="submit()">
     <clr-textarea-container>
         <label>Reason for time off</label>
-        <textarea clrTextarea  rows="4" cols="40" placeholder="Type reason here" formControlName="reason"></textarea>
+        <textarea clrTextarea  rows="5" cols="30" placeholder="Type reason here" formControlName="reason"></textarea>    
         <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
     </clr-textarea-container>
-    
+    <br />
     <clr-input-container>
-        <label>Start Time</label>
-        <input clrInput [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Start Time" formControlName="startTime"/>
-        <owl-date-time #dt></owl-date-time>
-        <clr-control-error *clrIfError="required">Start Time is required</clr-control-error>
-    </clr-input-container>
-    <clr-input-container>
-        <label>End Time</label>
-        <input clrInput [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" placeholder="End Date" formControlName="endTime"/>
-        <owl-date-time #dt1></owl-date-time>
-        <clr-control-error *clrIfError="required">End Time is required</clr-control-error>
+        <label>Start date</label>
+        <input clrInput type="datetime" placeholder="Start date" formControlName="startDate"/>      
+        <clr-control-error *clrIfError="required">Start date required</clr-control-error>
     </clr-input-container>
     <br />
-        
+    <clr-input-container>
+        <label>End date</label>
+        <input clrInput type="datetime" placeholder="End date" formControlName="endDate"/>     
+        <clr-control-error *clrIfError="required">End date required</clr-control-error>
+    </clr-input-container>
+    <br />
     <button class="btn btn-primary" type="submit">Submit</button>
     <button class="btn" type="button" (click)="resetForm()">Reset</button>
 </form>
-<br /><br />
+<br /><br /-->
+
+
+<div class="clr-row">
+    <div class="clr-col">
+        <form clrForm [formGroup]="requestForm" #fform="ngForm" style="padding:20px;"(ngSubmit)="submit()">
+            <h1>Timeoff Application Form</h1>
+            
+            <clr-textarea-container>
+                <label>Reason for timeoff</label>
+                <textarea clrTextarea  rows="4" cols="40" placeholder="Type reason here" formControlName="reason"></textarea>
+                <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
+            </clr-textarea-container>
+            <br />
+            <clr-input-container>
+                <label>Start date</label>
+                <input clrInput type="datetime" placeholder="Start date" formControlName="startDate"/>      
+                <clr-control-error *clrIfError="required">Start date required</clr-control-error>
+            </clr-input-container>
+            <br />
+            <clr-input-container>
+                <label>End date</label>
+                <input clrInput type="datetime" placeholder="End date" formControlName="endDate"/>     
+                <clr-control-error *clrIfError="required">End date required</clr-control-error>
+            </clr-input-container>
+            <br />
+            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>
+        </form>
+    </div>
+    <div class="clr-col">
+        <app-calendar></app-calendar>
+    </div>
+</div>

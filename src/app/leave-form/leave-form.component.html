@@ -1,4 +1,4 @@
-<app-calendar></app-calendar>
+<!--app-calendar></app-calendar>
 
 <p></p>
 
@@ -40,4 +40,53 @@
     <button class="btn btn-primary" type="submit">Submit</button>
     <button class="btn" type="button" (click)="resetForm()">Reset</button>
 </form>
-<br /><br />
+<br /><br /-->
+
+
+
+<div class="clr-row">
+    <div class="clr-col">
+      <form clrForm [formGroup]="requestForm" #fform="ngForm" style="padding:20px;"(ngSubmit)="submit()">
+          <h1>Leave Application Form</h1>
+            <div class="clr-form-control clr-row">
+                <label for="select-leave" class="clr-control-label">Select Type of Leave</label>
+                <div class="clr-control-container clr-error">
+                    <div class="clr-select-wrapper">
+                        <select id="select-leave" class="clr-select" required>
+                            <option value="1">Vacation</option>
+                            <option value="2">Sick</option>
+                            <option value="3">Study</option>
+                            <option value="4">Special</option>
+                        </select>
+                        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                    </div>
+                    <span class="clr-subtext">This is required</span>
+                </div>
+            </div>
+  
+            <clr-textarea-container>
+                <label>Reason for leave request</label>
+                <textarea clrTextarea  rows="4" cols="40" placeholder="Type reason here" formControlName="reason"></textarea>
+                <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
+            </clr-textarea-container>
+            <br />
+            <clr-input-container>
+                <label>Start date</label>
+                <input clrInput type="date" placeholder="Start date" formControlName="startDate"/>
+                <clr-control-error *clrIfError="required">Start date required</clr-control-error>
+            </clr-input-container>
+            <br />
+            <clr-input-container>
+                <label>End date</label>
+                <input clrInput type="date" placeholder="End date" formControlName="endDate"/>
+                <clr-control-error *clrIfError="required">End date required</clr-control-error>
+            </clr-input-container>
+            <br />
+            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>
+        </form>
+    </div>
+    <div class="clr-col">
+      <app-calendar></app-calendar>
+    </div>
+  </div>

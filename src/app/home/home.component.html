@@ -1,115 +1,115 @@
 <clr-main-container>
-  <app-header></app-header>
-  <div class="content-container">
-    <div class="content-area">
-      <div class="clr-row clr-justify-content-center">
-        <div class="clr-col">
-          <span><h1 style="font-weight:bold;">WELCOME TO GUYANA LANDS AND SURVEYS' LEAVE TRACKING SYSTEM</h1></span>
+    <app-header></app-header>
+    <div class="content-container">
+      <div class="content-area">
+        <div class="clr-row clr-justify-content-center">
+          <div class="clr-col">
+            <span><h1 style="font-weight:bold;">WELCOME TO GUYANA LANDS AND SURVEYS' LEAVE TRACKING SYSTEM</h1></span>
+          </div>
+          <div class="clr-break-row" style="padding:10px;">
+            <hr>
+          </div>
+          <div class="clr-col">
+            <h4>Apply for, track or manage leave.</h4>
+          </div>
         </div>
-        <div class="clr-break-row" style="padding:10px;">
-          <hr>
-        </div>
-        <div class="clr-col">
-          <h4>Apply for, track or manage leave.</h4>
-        </div>
-      </div>
-      <div class="clr-row">
-        <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
-        <div class="card">
-          <div class="card-img">
-               <img src="assets/personal.png" class="card-image">
-           </div>
-            <div class="card-block">
-                <div class="card-title">
-                    Edit/Check Personal Data
-                </div>
-                <div class="card-text">
-                    View your personal leave (days left alotted for each type) and bio data.
-                    Edit your login credentials and bio data.
-                </div>
+        <div class="clr-row">
+          <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-img">
+                 <img src="assets/personal.png" class="card-image">
+             </div>
+              <div class="card-block">
+                  <div class="card-title">
+                      Edit/Check Personal Data
+                  </div>
+                  <div class="card-text">
+                      View your personal leave (days left alotted for each type) and bio data.
+                      Edit your login credentials and bio data.
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <a routerLink="/profile"><button class="btn btn-sm btn-link">Go to Profile</button></a>
+              </div>
             </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-link">Go to Profile</button>
+          </div>
+          <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-img" >
+                 <img src="assets/apply.png" class="card-image">
+             </div>
+              <div class="card-block">
+                  <div class="card-title">
+                      Apply for Leave/Time-off/Resumption
+                  </div>
+                  <div class="card-text">
+                      Fill out and submit your applications for for resumption, time off and leave here.
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <a href="/apply/resumption"><button class="btn btn-sm btn-link">Resume</button></a>
+                  <a href="apply/leave"><button class="btn btn-sm btn-link">Apply for Leave</button></a>
+                  <a href="apply/timeoff"><button class="btn btn-sm btn-link">Apply for Time-off</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-img" >
+                 <img src="assets/view request.png" class="card-image">
+             </div>
+              <div class="card-block">
+                  <div class="card-title">
+                      View Leave Request History
+                  </div>
+                  <div class="card-text">
+                      View your previously applied for leave. Track your pending leave requests' approval statuses.
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <a href="/history"><button class="btn btn-sm btn-link">View Leave History</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-img">
+                 <img src="assets/approve.png" class="card-image">
+             </div>
+              <div class="card-block">
+                  <div class="card-title">
+                      Manage Leave/Time-off/Resumption Requests
+                  </div>
+                  <div class="card-text">
+                    View all leave requests pending your approval. Approve/disapprove your staffs' leave applications.
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <a href="/requests"><button class="btn btn-sm btn-link">View Requests</button></a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
-        <div class="card">
-          <div class="card-img" >
-               <img src="assets/apply.png" class="card-image">
-           </div>
-            <div class="card-block">
-                <div class="card-title">
-                    Apply for Leave/Time-off/Resumption
-                </div>
-                <div class="card-text">
-                    Fill out and submit your applications for for resumption, time off and leave here.
-                </div>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-link">Resume</button>
-                <button class="btn btn-sm btn-link">Apply for Leave</button>
-                <button class="btn btn-sm btn-link">Apply for Time-off</button>
-            </div>
-          </div>
-        </div>
-        <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
-        <div class="card">
-          <div class="card-img" >
-               <img src="assets/view request.png" class="card-image">
-           </div>
-            <div class="card-block">
-                <div class="card-title">
-                    View Leave Request History
-                </div>
-                <div class="card-text">
-                    View your previously applied for leave. Track your pending leave requests' approval statuses.
-                </div>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-link">View Leave History</button>
-            </div>
-          </div>
-        </div>
-        <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
-        <div class="card">
-          <div class="card-img">
-               <img src="assets/approve.png" class="card-image">
-           </div>
-            <div class="card-block">
-                <div class="card-title">
-                    Manage Leave/Time-off/Resumption Requests
-                </div>
-                <div class="card-text">
-                  View all leave requests pending your approval. Approve/disapprove your staffs' leave applications.
-                </div>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-link">View Requests</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="clr-row">
-        <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
-        <div class="card">
-          <div class="card-img">
-               <img src="assets/mail.png" class="card-image">
-           </div>
-            <div class="card-block">
-                <div class="card-title">
-                    View Sent and Received Mail
-                </div>
-                <div class="card-text">
-                  View all correspondence between yourself and other staff carried out through the system.
-                </div>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-sm btn-link">View Messages</button>
+        <div class="clr-row">
+          <div class="clr-col-lg-3 clr-col-md-8 clr-col-12">
+          <div class="card">
+            <div class="card-img">
+                 <img src="assets/mail.png" class="card-image">
+             </div>
+              <div class="card-block">
+                  <div class="card-title">
+                      View Sent and Received Mail
+                  </div>
+                  <div class="card-text">
+                    View all correspondence between yourself and other staff carried out through the system.
+                  </div>
+              </div>
+              <div class="card-footer">
+                  <a href="/messages"><button class="btn btn-sm btn-link">View Messages</button></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</clr-main-container>
+  </clr-main-container>

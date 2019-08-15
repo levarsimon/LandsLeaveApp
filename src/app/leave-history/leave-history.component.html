@@ -1,56 +1,21 @@
 <clr-main-container>
-  <app-header></app-header>
-  <div class="content-container">
-    <div class="content-area">
-        <br /><br />
-    <table class="table">
-      <thead>
-          <tr>
-            <th>Leave Type</th>
-            <th>Total Days</th>
-            <th>Days Used</th>
-            <th>Days Remaining</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>Sick Leave (Certified)</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>Sick Leave (Uncertified)</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>Special Leave</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>Compassionate Leave</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>Vacation Leave</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>Study Leave</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</clr-main-container>
+    <app-header></app-header>
+    <div class="content-container">
+      <nav class="sidenav" [clr-nav-level]="2">
+             <section class="sidenav-content">
+               <section class="nav-group">
+                   <label for="tabexample2">Applications</label>
+                   <ul class="nav-list">
+                       <li><a class="nav-link" routerLink="/history/summary" routerLinkActive="active">Leave Summary</a></li>
+                       <li><a class="nav-link" routerLink="/history/annual" routerLinkActive="active">Annual Leave</a></li>
+                       <li><a class="nav-link" routerLink="/history/sick" routerLinkActive="active">Sick Leave</a></li>
+                       <li><a class="nav-link" routerLink="/history/nopay" routerLinkActive="active">No-pay Leave</a></li>
+                       <li><a class="nav-link" routerLink="/history/special" routerLinkActive="active">Special Leave</a></li>
+                       <li><a class="nav-link" routerLink="/history/study" routerLinkActive="active">Study Leave</a></li>
+                   </ul>
+               </section>
+                 </section>
+         </nav>
+         <router-outlet></router-outlet>
+      </div>
+  </clr-main-container>

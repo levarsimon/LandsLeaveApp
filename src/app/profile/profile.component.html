@@ -1,6 +1,45 @@
 <clr-main-container>
   <app-header></app-header>
-  <div class="content-container">
-    <p>profile works!</p>
-  </div>
+    <div class="content-container">
+      <div class="content-area">
+        <div class="card">
+          <div class="clr-row clr-justify-content-between" style="margin:10px;">
+            <div class="clr-col-3">
+              <h4 style="font-weight:bold;">{{user.fullName() | uppercase}}</h4>
+              <span>{{user.jobTitle}}</span>
+            </div>
+            <div class="clr-col-3">
+              <h6>{{user.leave()}}</h6>
+              <a *ngIf="user.onLeave" href="apply/resumption"><button class="btn btn-primary">Resume</button></a>
+              <a *ngIf="!user.onLeave" href="/apply/leave"><button class="btn btn-primary">Leave</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="clr-row">
+          <h4 style="font-weight:bold;padding-left:10px;">Basic Data</h4>
+          <div class="clr-break-row"></div>
+            <div class="clr-col">
+            <div class="card" style="padding:10px;">
+              <p class="p4">Full name: {{user.fullName()}}</p>
+              <p class="p4">Email address: {{user.Email}}</p>
+              <p class="p4">Job Title: {{user.jobTitle}}</p>
+              <p class="p4">Subdivision: {{user.subdivisionName}}</p>
+              <p class="p4">Division: {{user.divisionName}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="clr-row">
+          <h4 style="font-weight:bold;padding-left:10px;">Leave Data</h4>
+          <div class="clr-break-row"></div>
+          <div class="clr-col">
+            <div class="card" style="padding:10px;">
+              <p class="p4">Annual Leave Days Left: {{user.annualLeft}}</p><br>
+              <p class="p4">Special Leave Days Left:</p><br>
+              <p class="p4">Sick Leave Days Left:</p><br>
+              <p class="p4">Study Leave Days Left:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </clr-main-container>

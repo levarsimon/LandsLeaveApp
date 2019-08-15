@@ -5,7 +5,7 @@ import {ProfileComponent} from '../profile/profile.component';
 import {LoginPageComponent} from '../login-page/login-page.component';
 import {LeaveHistoryComponent} from '../leave-history/leave-history.component';
 import {LeaveRequestComponent} from '../leave-request/leave-request.component';
-import {StaffInformationComponent} from '../staff-information/staff-information.component';
+import {MessagesComponent} from '../messages/messages.component';
 
 export const routes: Routes = [
   {path: 'home',  component: HomeComponent },
@@ -13,6 +13,6 @@ export const routes: Routes = [
   {path: 'login', component: LoginPageComponent },
   {path: 'history', component: LeaveHistoryComponent},
   {path: 'requests', component: LeaveRequestComponent},
-  {path: 'staff_information', component: StaffInformationComponent},
+  {path:'messages', component: MessagesComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full' }   
 ];
