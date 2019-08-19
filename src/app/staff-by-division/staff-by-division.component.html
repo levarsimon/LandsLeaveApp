@@ -1,1 +1,34 @@
-<p>staff-by-division works!</p>
+<clr-main-container>
+        <div class="content-container">
+            <div class="clr-row clr-justify-content-around">    
+                <div class="clr-col">
+                    <form clrForm #fform="ngForm" style="padding:20px;"(ngSubmit)="submit()">
+                        <clr-input-container>
+                            <label>Search by Division</label>
+                            <input clrInput type="text" [(ngModel)]="model" name="search" placeholder="Enter Division Here" required/>
+                            <clr-control-error *clrIfError="required">Division is required</clr-control-error>
+                        </clr-input-container>
+                      
+                        <button class="btn btn-success btn-sm" type="submit">Search</button>
+                        <button class="btn btn-danger btn-sm" type="button" (click)="resetForm()">Reset</button>
+                    </form>        
+                </div>
+                <div class="clr-col">
+                    <clr-datagrid>
+                        <clr-dg-column>First Name</clr-dg-column>
+                        <clr-dg-column>Last Name</clr-dg-column>
+                        <clr-dg-column>Department</clr-dg-column>
+                        <clr-dg-column>Division</clr-dg-column>
+                        <clr-dg-column>Designation</clr-dg-column>
+                    </clr-datagrid>
+                    <!--clr-dg-row *ngIf="employees" *ngFor="let employee of employees">
+                        <clr-dg-cell>{{employee.firstName}}</clr-dg-cell>
+                        <clr-dg-cell>{{employee.lastName}}</clr-dg-cell>
+                        <clr-dg-cell>{{employee.department}}</clr-dg-cell>
+                        <clr-dg-cell>{{employee.division}}</clr-dg-cell>
+                        <clr-dg-cell>{{employee.designation}}</clr-dg-cell>
+                    </clr-dg-row-->
+                </div>            
+            </div>
+        </div>
+    </clr-main-container>

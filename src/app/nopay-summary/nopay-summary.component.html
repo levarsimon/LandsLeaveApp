@@ -1,1 +1,32 @@
-<p>nopay-summary works!</p>
+<clr-main-container>  
+    <br />
+    <h1>No-pay Leave History</h1>
+    <div class="content-container clr-justify-content-center">
+        <div class="content-area">
+            <clr-datagrid>
+                <clr-dg-column>First Name</clr-dg-column>
+                <clr-dg-column>Last Name</clr-dg-column>
+                <clr-dg-column>From Date</clr-dg-column>
+                <clr-dg-column>To Date</clr-dg-column>
+                <clr-dg-column>Days</clr-dg-column>
+                <clr-dg-column>Leave Reason</clr-dg-column>
+                <clr-dg-column>Date of Request</clr-dg-column>
+                <clr-dg-column>Date of Approval</clr-dg-column>
+                <clr-dg-column>Leave Approved by</clr-dg-column>
+        
+                <!--clr-dg-row *ngIf="employee" *ngFor="let employee of employees">
+                    <clr-dg-cell>{{employee.firstName}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.lastName}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.startDate}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.endDate}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.days}}</clr-dg-cell>        
+                    <clr-dg-cell>{{employee.reason}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.requestDate}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.approvalDate}}</clr-dg-cell>
+                    <clr-dg-cell>{{employee.approvedBy}}</clr-dg-cell>
+                </clr-dg-row-->
+            </clr-datagrid>
+        </div>
+    </div>
+    <br /><br />
+</clr-main-container>

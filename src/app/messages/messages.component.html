@@ -1,8 +1,33 @@
-<clr-main-container>
+<clr-main-container>  
     <app-header></app-header>
-    <div class="content-container">
+    <br />
+    <h1>Messages</h1>
+    <div class="content-container clr-justify-content-center">
         <div class="content-area">
-
+            <clr-datagrid>
+                <clr-dg-column>Date</clr-dg-column>
+                <clr-dg-column>Subject</clr-dg-column>
+                <clr-dg-column>Something</clr-dg-column>
+                <clr-dg-column>Something</clr-dg-column>
+                <clr-dg-column>Something</clr-dg-column>                
+        
+                <!--clr-dg-row *ngIf="messages" *ngFor="let message of messages">
+                    <clr-dg-cell>{{message.date}}</clr-dg-cell>
+                    <clr-dg-cell>{{message.subject}}</clr-dg-cell>
+                    <clr-dg-cell>{{message.something}}</clr-dg-cell>
+                    <clr-dg-cell>{{message.something}}</clr-dg-cell>
+                    <clr-dg-cell>{{message.something}}</clr-dg-cell>                    
+                </clr-dg-row-->
+                <clr-dg-row>
+                    <clr-dg-cell>something</clr-dg-cell>
+                    <clr-dg-cell>something</clr-dg-cell>
+                    <clr-dg-cell>something</clr-dg-cell>
+                    <clr-dg-cell>something</clr-dg-cell>
+                    <clr-dg-cell>something</clr-dg-cell>                    
+                </clr-dg-row>
+            </clr-datagrid>
         </div>
     </div>
+    <br /><br />
 </clr-main-container>
+      
