@@ -1,4 +1,4 @@
-export class Messages{
+export class Message{
   id:number;
   toEmpID:number;
   fromEmpID:number;

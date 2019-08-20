@@ -48,6 +48,15 @@ import { StaffByDivisionComponent } from './staff-by-division/staff-by-division.
 import {StaffRoutingModule} from './staff-page/app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
 
+import { NgxsModule } from '@ngxs/store';
+import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
+
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,13 +83,16 @@ import { MessagesComponent } from './messages/messages.component';
     StaffBySubdivisionComponent,
     StaffByDivisionComponent,
     MessagesComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     ApplyRoutingModule,
+    NgxsModule,
     HistoryRoutingModule,
     StaffRoutingModule,
     CommonModule,
@@ -92,7 +104,13 @@ import { MessagesComponent } from './messages/messages.component';
    CalendarModule.forRoot({
      provide: DateAdapter,
      useFactory: adapterFactory
-   })
+   },
+ ),
+ NgxsStoragePluginModule.forRoot({
+    key: ['auth.token ', 'auth.email ', 'auth.name ']
+    }),
+ NgxsReduxDevtoolsPluginModule.forRoot(),
+ NgxsLoggerPluginModule.forRoot()
   ],
   providers: [
     AuthService

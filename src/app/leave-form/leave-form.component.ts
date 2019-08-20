@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {Leave} from '../models/Leave';
 
 @Component({
   selector: 'app-leave-form',
@@ -9,21 +10,33 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 export class LeaveFormComponent implements OnInit {
 
   requestForm: FormGroup;
+  feedback: Leave;
+  @ViewChild('rform',{static:false}) requestFormDirective;
   
   constructor(private formBuilder: FormBuilder) {
-    
+
+    this.createForm();
+
+  }
+
+  createForm() {
     this.requestForm = this.formBuilder.group({
+      type:['',Validators.required],
       reason: ['', Validators.required],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required]
     });
   }
 
-  submit() {
-    if (this.requestForm.valid) {
-      console.log(this.requestForm.value);
-      this.requestForm.reset();
-    }
+  onSubmit() {
+    this.feedback = this.requestForm.value;
+    this.requestForm.reset({
+      type:'',
+      reason:'',
+      startDate:'',
+      endDate:''
+    });
+    this.requestFormDirective.resetForm();
   }
 
   resetForm() {

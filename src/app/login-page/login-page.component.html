@@ -1,3 +1,26 @@
 <clr-main-container>
-<p>Login page works!</p>
+    <div class="clr-row">
+        <div class="clr-col">
+            <form clrForm #lgform="ngForm" [formGroup]="loginForm">
+                <h1>Sign In!</h1>
+                <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+                <clr-input-container>
+                    <label>Username</label>
+                    <input clrInput type="text" formControlName="username">
+                    <clr-control-helper>Enter your username you signed up with.</clr-control-helper>
+                    <clr-control-error *clrIfError="required">This is required.</clr-control-error>
+                </clr-input-container>
+    
+                <clr-password-container>
+                    <label>Password</label>
+                    <input clrPassword type="text" formControlName="password">
+                    <clr-control-helper>Enter your password you signed up with.</clr-control-helper>
+                    <clr-control-error *clrIfError="required">This is required.</clr-control-error>
+                </clr-password-container>
+    
+                <button class="btn btn-primary" type="submit" (click)="submit()">Submit</button>
+                <button class="btn" type="button" (click)="resetForm()">Reset</button>
+            </form>
+        </div>
+    </div>
 <clr-main-container>
