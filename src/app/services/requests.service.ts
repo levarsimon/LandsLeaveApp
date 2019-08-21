@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 import { LeaveAdapter, Leave } from '../models/Leave';
 import { throwError, Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';

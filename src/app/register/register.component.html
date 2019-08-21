@@ -1,7 +1,7 @@
 <clr-main-container>
     <div class="content-container">
         <div class="content-area">
-            <form clr-form>
+            <form clr-form [formGroup]="registerForm" #fform="ngForm" style="padding:20px;"(ngSubmit)="onSubmit()">
                 <clr-input-container>
                     <label>First Name</label>
                     <input clrInput type="text" placeholder="First Name" name="firstName" required/>
@@ -64,6 +64,9 @@
                     <input clrInput type="password" placeholder="Re-enter Password" name="password2" required/>
                     <clr-contol-error>This field is required!</clr-contol-error>
                 </clr-input-container>
+                <br />
+                <button class="btn btn-success" type="submit">Register</button>
+                <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>
             </form>
         </div>
     </div>
