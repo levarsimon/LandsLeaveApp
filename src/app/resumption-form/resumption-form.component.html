@@ -1,12 +1,12 @@
-<div class="clr-row">    
-    <div class="clr-col">        
+<div class="clr-row">
+    <div class="clr-col">
         <form clrForm [formGroup]="resumptionForm" #fform="ngForm" style="padding:20px;"(ngSubmit)="submit()">
             <h1>Leave Resumption Form</h1>
             <clr-input-container>
                 <label>Resumption Date</label>
                 <input clrInput type="date" id="resumptionDate" placeholder="Resumption date" formControlName="resumptionDate"/>
                 <clr-control-error *clrIfError="required">Start date required</clr-control-error>
-            </clr-input-container>                      
+            </clr-input-container>
             <br />
             <button class="btn btn-sm btn-success" type="submit">Submit</button>
             <button class="btn btn-sm btn-danger" type="button" (click)="resetForm()">Reset</button>

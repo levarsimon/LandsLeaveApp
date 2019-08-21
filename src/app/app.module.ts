@@ -55,6 +55,11 @@ import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { AuthState } from './states/auth-state';
+import { AuthGuard } from './services/auth-guard.service';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
 
 
 @NgModule({
@@ -87,12 +92,12 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,
+    NgxsModule.forRoot([AuthState]),
     ClarityModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ApplyRoutingModule,
-    NgxsModule,
+    ApplyRoutingModule,    
     HistoryRoutingModule,
     StaffRoutingModule,
     CommonModule,
@@ -101,19 +106,25 @@ import { RegisterComponent } from './register/register.component';
     OwlNativeDateTimeModule,
     ReactiveFormsModule,
     FlatpickrModule.forRoot(),
-   CalendarModule.forRoot({
+    CalendarModule.forRoot({
      provide: DateAdapter,
      useFactory: adapterFactory
    },
  ),
  NgxsStoragePluginModule.forRoot({
-    key: ['auth.token ', 'auth.email ', 'auth.name ']
+  key: 'auth.token'
     }),
  NgxsReduxDevtoolsPluginModule.forRoot(),
  NgxsLoggerPluginModule.forRoot()
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptor,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

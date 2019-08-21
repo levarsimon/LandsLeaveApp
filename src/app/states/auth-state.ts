@@ -41,12 +41,12 @@ export class AuthState {
   @Action(Signin)
   login(
     { patchState }: StateContext<AuthStateModel>,
-    credentials: Signin
+    {payload}: Signin
   ) {
-    return this.authService.signin(credentials).pipe(
+    return this.authService.signin(payload).pipe(
       tap(result => {
         patchState({
-      
+          token: result.token, name: payload.username
         });
       })
     );
@@ -56,7 +56,7 @@ export class AuthState {
   logout({ setState, getState }: StateContext<AuthStateModel>) {
     const { token } = getState();
     return this.authService.signout().pipe(
-      tap(_ => {
+      tap(()=> {
         setState({});
       })
     );

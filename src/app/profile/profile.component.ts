@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/UserModel';
-import { UserService } from '../services/user.service';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { leaveTaken } from '../models/leaveTaken';
 
 @Component({
   selector: 'app-profile',
@@ -9,11 +11,15 @@ import { UserService } from '../services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User;
+  user:Observable<User>;
+  userLeaveRecord:Observable<leaveTaken>;
 
-  constructor(private data: UserService) { }
+  constructor(private store: Store) {
+    this.user = this.store.select(state => state.user.user);
+    this.userLeaveRecord= this.store.select(state=> state.takenLeaves.leave);
+  }
 
   ngOnInit() {
     
-  }
+  } 
 }

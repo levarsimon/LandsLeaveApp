@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
+  isVisible = false;
+
   constructor() { }
 
   ngOnInit() {

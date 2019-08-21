@@ -1,9 +1,9 @@
 <clr-main-container>
     <div class="clr-row">
         <div class="clr-col">
-            <form clrForm #lgform="ngForm" [formGroup]="loginForm">
+            <form clrForm #lgform="ngForm" [formGroup]="loginForm" (ngSubmit)="submit()">
                 <h1>Sign In!</h1>
-                <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+                <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password</div>
                 <clr-input-container>
                     <label>Username</label>
                     <input clrInput type="text" formControlName="username">

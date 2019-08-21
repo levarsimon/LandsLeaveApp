@@ -19,7 +19,6 @@ export class User{
   annualLeft:number;
   sickLeft:number;
 
-
   constructor(id,firstName,lastName,email,doB,jobTitle,employeeType,employeeBand,supervisorId,subdivisionID,
               subdivisionName,managerId,divisionID,divisionName,onLeave){
     this.id=id;
@@ -51,18 +50,17 @@ export class User{
     return this.firstName + " " + this.lastName;
   }
 
-
   toJson(): any {
     return {
-      EmpID:this.id,
-      FName:this.firstName,
-      LName:this.lastName,
+      empID:this.id,
+      fname:this.firstName,
+      lname:this.lastName,
       email:this.email,
       dob:this.dOB,
-      JobTitle:this.jobTitle,
-      EMPType:this.employeeType,
-      EMPBand:this.employeeBand,
-      SubDivId:this.subdivisionID,
+      jobTitle:this.jobTitle,
+      emptype:this.employeeType,
+      empband:this.employeeBand,
+      subDivId:this.subdivisionID,
       divId:this.divisionID,
       onLeave:this.onLeave
     };
@@ -76,16 +74,16 @@ export class UserAdapter{
 
   adapt(item:any):User{
     return new User(
-      item.EmpID,
-      item.FName,
-      item.LName,
+      item.empID,
+      item.fname,
+      item.lname,
       item.email,
       new Date(item.dob),
-      item.JobTitle,
-      item.EMPType,
-      item.EMPBand,
+      item.jobTitle,
+      item.emptype,
+      item.empband,
       item.subDiv.supvrId,
-      item.subDiv.SubDivId,
+      item.subDiv.subDivId,
       item.suvDiv.name,
       item.div.mngerId,
       item.div.divId,

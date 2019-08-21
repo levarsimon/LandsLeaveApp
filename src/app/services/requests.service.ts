@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { LeaveAdapter, Leave } from '../models/Leave';
 import { throwError, Observable } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map, catchError, retry } from 'rxjs/operators';
 
 @Injectable({
@@ -44,7 +43,10 @@ getLeave():Observable<Leave[]>{
   }
 
   cancelLeave(id){
-    return this.http.delete('url',)
+    return this.http.delete('url',this.httpOptions).pipe(
+      retry(1),
+      catchError(this.errorHandl)
+    );
   }
 
 }

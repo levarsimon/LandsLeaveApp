@@ -27,13 +27,21 @@ export class UserService {
    return throwError(errorMessage);
 }
 
-   httpOptions={
-     headers: new HttpHeaders({
-       'Content-Type':'application/json'
-     })
-   }
+httpOptions={
+  headers: new HttpHeaders({
+    'Content-Type':'application/json'
+  })
+}
 
-  getUser():Observable<User>{
+  getUser(id:number):Observable<User>{
+    return this.http.get('url').pipe(
+      map((data:any) => data.map(item => this.adapter.adapt(item))),
+    retry(1),
+    catchError(this.errorHandl)
+  );
+  }
+
+  getUsers(division?:string, subdivision?:string,name?:string):Observable<User[]>{
     return this.http.get('url').pipe(
       map((data:any) => data.map(item => this.adapter.adapt(item))),
     retry(1),
@@ -48,8 +56,11 @@ export class UserService {
   );
   }
 
-  deleteUser(id){
-
+  deleteUser(id:number){
+     return this.http.delete('url').pipe(
+       map((data:any) => data.map(item => this.adapter.adapt(item))),
+       retry(1),catchError(this.errorHandl)
+     )
   }
 
 }

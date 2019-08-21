@@ -1,4 +1,3 @@
-    
 <clr-header>
     <div class="branding">
         <a href="..." class="nav-link">
@@ -6,7 +5,7 @@
             <span class="title"><b style="font-size:20px;">GLSC</b> Leave Tracking System</span>
         </a>
     </div>
-    
+
     <div class="header-nav" [clr-nav-level]="1">
         <a href="..." class="nav-link" routerLink="/home" routerLinkActive="active"><span class="nav-text">Home</span></a>
         <a href="..." class="nav-link" routerLink="/profile" routerLinkActive="active"><span class="nav-text">Profile</span></a>
@@ -16,8 +15,8 @@
         <a href="..." class="nav-link" routerLink="/requests" routerLinkActive="active"><span class="nav-text">Leave Request</span></a>
         <a href="..." class="nav-link" routerLink="/staff" routerLinkActive="active"><span class="nav-text">Staff Information</span></a>
     </div>
-    
+
     <div class="header-actions">
-        <a href="..." routerLink="../login"class="nav-link nav-text">Log Out</a>
+        <button (click)="logout()">Log Out</button>
     </div>
 </clr-header>
