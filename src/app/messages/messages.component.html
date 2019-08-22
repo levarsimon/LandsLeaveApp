@@ -15,21 +15,13 @@
                     <clr-dg-cell>{{message.sender}}</clr-dg-cell>                                       
                 </clr-dg-row-->                
                 
-                <clr-dg-row><button (click)="isVisible = true">
+                <clr-dg-row>
                     <clr-dg-cell>August 21, 2019</clr-dg-cell>
-                    <clr-dg-cell>Pick something, anything</clr-dg-cell>
-                    <clr-dg-cell>Rum</clr-dg-cell>    </button>                   
-                </clr-dg-row>
+                    <clr-dg-cell><button (click)="open" type="button">Pick up something, anything</button></clr-dg-cell>
+                    <clr-dg-cell>Rum</clr-dg-cell>
+                </clr-dg-row>                
                 
-                <clr-modal [(clrModalOpen)]="isVisible">
-                    <h3 class="modal-title">Pick up something, anything</h3>
-                    <div class="modal-body">
-                        <p>Message body...</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-primary btn btn-sm" (click)="isVisible = false">Ok</button>
-                    </div>
-                </clr-modal>
+                <app-modal-component [btnText]="'Close'"></app-modal-component>
             </clr-datagrid>
         </div>
     </div>

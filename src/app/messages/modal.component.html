@@ -1,0 +1,9 @@
+<clr-modal [(clrModalOpen)]="show">
+    <h3 class="modal-title">Subject</h3>  
+    <div class="modal-body">
+        <h5>{{ msg }}</h5>
+    </div>  
+    <div class="modal-footer">
+        <button (click)="show = false" class="btn btn-primary btn-sm">{{ btnText }}</button>
+    </div>  
+</clr-modal>

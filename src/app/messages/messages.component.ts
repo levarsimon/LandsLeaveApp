@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject, Observable } from 'rxjs';
+import { AppModalComponent } from './modal.component';
 
 @Component({
   selector: 'app-messages',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  isVisible = false;
+  @ViewChild(AppModalComponent, {static: true}) modal: AppModalComponent;
 
   constructor() { }
+
+  open() {
+    this.modal.open();
+  }
 
   ngOnInit() {
   }
