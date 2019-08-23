@@ -47,7 +47,10 @@ import { StaffByDivisionComponent } from './staff-by-division/staff-by-division.
 
 import {StaffRoutingModule} from './staff-page/app-routing.module';
 import { MessagesComponent } from './messages/messages.component';
-import { AppModalComponent } from './messages/modal.component';
+import { AppMessageModalComponent } from './messages/modal.component';
+import { AppStaffByNameModalComponent } from './staff-by-name/modal.component';
+import { AppStaffBySubdivisionModalComponent } from './staff-by-subdivision/modal.component';
+import { AppStaffByDivisionModalComponent } from './staff-by-division/modal.component';
 
 import { NgxsModule } from '@ngxs/store';
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
@@ -90,7 +93,10 @@ import { TokenInterceptor } from './services/token.interceptor';
     StaffByDivisionComponent,
     MessagesComponent,
     RegisterComponent,
-    AppModalComponent
+    AppMessageModalComponent,
+    AppStaffByNameModalComponent,
+    AppStaffBySubdivisionModalComponent,
+    AppStaffByDivisionModalComponent
   ],
   imports: [
     BrowserModule,

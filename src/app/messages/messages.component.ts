@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Observable } from 'rxjs';
-import { AppModalComponent } from './modal.component';
+import { AppMessageModalComponent } from './modal.component';
 
 @Component({
   selector: 'app-messages',
@@ -10,7 +10,7 @@ import { AppModalComponent } from './modal.component';
 })
 export class MessagesComponent implements OnInit {
 
-  @ViewChild(AppModalComponent, {static: true}) modal: AppModalComponent;
+  @ViewChild(AppMessageModalComponent, {static: true}) modal: AppMessageModalComponent;
 
   constructor() { }
   

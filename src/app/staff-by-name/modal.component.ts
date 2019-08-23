@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   templateUrl: './modal.component.html',
-  selector: 'app-message-modal-component'
+  selector: 'app-staff-by-name-modal-component'
 })
 
-export class AppMessageModalComponent {
+export class AppStaffByNameModalComponent {
 
   @Input()
   btnText = 'OK!';

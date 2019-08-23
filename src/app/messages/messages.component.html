@@ -15,15 +15,13 @@
                     <clr-dg-cell>{{message.sender}}</clr-dg-cell>                                       
                 </clr-dg-row-->                
                 
-                <clr-dg-row>
-                    <clr-dg-cell><button class="btn btn-sm btn-link" (click)="modal.open('This is a Test')">August 21, 2019</button></clr-dg-cell>
-                    <clr-dg-cell><button class="btn btn-sm btn-link" (click)="modal.open('This is a Test')">Pick up something, anything</button></clr-dg-cell>
-                    <clr-dg-cell><button class="btn btn-sm btn-link" (click)="modal.open('This is a Test')">Rum</button></clr-dg-cell>
-                    <app-modal-component [btnText]="'Close'"></app-modal-component>
-                </clr-dg-row>
-                
-                
+                <clr-dg-row (click)="modal.open('This is a Test')">
+                    <clr-dg-cell>August 21, 2019</clr-dg-cell>
+                    <clr-dg-cell>Pick up something, anything</clr-dg-cell>
+                    <clr-dg-cell>Rum</clr-dg-cell>                    
+                </clr-dg-row>                
             </clr-datagrid>
+            <app-message-modal-component [btnText]="'Ok'"></app-message-modal-component>
         </div>
     </div>
     <br /><br />

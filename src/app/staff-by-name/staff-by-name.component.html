@@ -20,7 +20,16 @@
                     <clr-dg-column>Department</clr-dg-column>
                     <clr-dg-column>Division</clr-dg-column>
                     <clr-dg-column>Designation</clr-dg-column>
+
+                    <clr-dg-row (click)="modal.open('This is a Test')">
+                        <clr-dg-cell>John</clr-dg-cell>
+                        <clr-dg-cell>Smith</clr-dg-cell>
+                        <clr-dg-cell>IS</clr-dg-cell>
+                        <clr-dg-cell>Database</clr-dg-cell>
+                        <clr-dg-cell>Senior Database Specialist</clr-dg-cell>
+                    </clr-dg-row>
                 </clr-datagrid>
+                <app-staff-by-name-modal-component [btnText]="'Ok'"></app-staff-by-name-modal-component>
                 <!--clr-dg-row *ngIf="employees" *ngFor="let employee of employees">
                     <clr-dg-cell>{{employee.firstName}}</clr-dg-cell>
                     <clr-dg-cell>{{employee.lastName}}</clr-dg-cell>

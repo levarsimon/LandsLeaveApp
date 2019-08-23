@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import { AppStaffByDivisionModalComponent } from './modal.component';
 
 @Component({
   selector: 'app-staff-by-division',
@@ -7,6 +8,8 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
   styleUrls: ['./staff-by-division.component.scss']
 })
 export class StaffByDivisionComponent implements OnInit {
+
+  @ViewChild(AppStaffByDivisionModalComponent, {static: true}) modal: AppStaffByDivisionModalComponent;
 
   searchForm: FormGroup;
 
