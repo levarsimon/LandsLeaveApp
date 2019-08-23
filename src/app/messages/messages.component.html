@@ -16,12 +16,13 @@
                 </clr-dg-row-->                
                 
                 <clr-dg-row>
-                    <clr-dg-cell>August 21, 2019</clr-dg-cell>
-                    <clr-dg-cell><button (click)="open" type="button">Pick up something, anything</button></clr-dg-cell>
-                    <clr-dg-cell>Rum</clr-dg-cell>
-                </clr-dg-row>                
+                    <clr-dg-cell><button class="btn btn-sm btn-link" (click)="modal.open('This is a Test')">August 21, 2019</button></clr-dg-cell>
+                    <clr-dg-cell><button class="btn btn-sm btn-link" (click)="modal.open('This is a Test')">Pick up something, anything</button></clr-dg-cell>
+                    <clr-dg-cell><button class="btn btn-sm btn-link" (click)="modal.open('This is a Test')">Rum</button></clr-dg-cell>
+                    <app-modal-component [btnText]="'Close'"></app-modal-component>
+                </clr-dg-row>
                 
-                <app-modal-component [btnText]="'Close'"></app-modal-component>
+                
             </clr-datagrid>
         </div>
     </div>

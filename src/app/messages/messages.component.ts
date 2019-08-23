@@ -13,11 +13,7 @@ export class MessagesComponent implements OnInit {
   @ViewChild(AppModalComponent, {static: true}) modal: AppModalComponent;
 
   constructor() { }
-
-  open() {
-    this.modal.open();
-  }
-
+  
   ngOnInit() {
   }
 
