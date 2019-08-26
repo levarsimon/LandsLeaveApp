@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../models/UserModel';
-import { Store } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { leaveTaken } from '../models/leaveTaken';
+import { UserState } from '../states/user-state';
+import { GetUser } from '../states/user-actions';
 
 @Component({
   selector: 'app-profile',
@@ -11,12 +13,11 @@ import { leaveTaken } from '../models/leaveTaken';
 })
 export class ProfileComponent implements OnInit {
 
-  user:Observable<User>;
-  userLeaveRecord:Observable<leaveTaken>;
+  user: Observable<User>;
+  userLeaveRecord: Observable<leaveTaken>;
 
   constructor(private store: Store) {
-    this.user = this.store.select(state => state.user.user);
-    this.userLeaveRecord= this.store.select(state=> state.takenLeaves.leave);
+    this.user = this.store.select(UserState => UserState.user);
   }
 
   ngOnInit() {

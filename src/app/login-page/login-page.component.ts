@@ -3,7 +3,6 @@ import {AuthService} from '../services/auth-service.service';
 import {Router} from '../../../node_modules/@angular/router';
 
 import {Validators, FormControl, FormBuilder } from '@angular/forms';
-import { Login } from '../models/Login';
 import { Store } from '@ngxs/store';
 import { Signin } from '../states/auth-actions';
 import { ClrForm } from '@clr/angular';
@@ -26,7 +25,7 @@ export class LoginPageComponent implements OnInit {
 
   feedback: {username: string, password: string};
 
-  constructor(private router: Router, private authservice:AuthService, private formBuilder:FormBuilder, private store: Store) { }
+  constructor(private router: Router, private authservice: AuthService, private formBuilder: FormBuilder, private store: Store) { }
 
   ngOnInit() {
   }
@@ -48,11 +47,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   login(credentials){
-    let result = this.authservice.notifyLogin(credentials);
-
+    this.authservice.signin(credentials)
+    .subscribe(result => {
     if (result)
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     else
-      this.invalidLogin=true;
+      this.invalidLogin = true;
+    });  
   }
 }

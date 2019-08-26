@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User, UserAdapter} from '../models/UserModel';
+import { User } from '../models/UserModel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { retry, catchError, map } from 'rxjs/operators';
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private adapter: UserAdapter) {
+  constructor(private http: HttpClient) {
 
    }
 
@@ -33,34 +33,28 @@ httpOptions={
   })
 }
 
-  getUser(id:number):Observable<User>{
-    return this.http.get('url').pipe(
-      map((data:any) => data.map(item => this.adapter.adapt(item))),
-    retry(1),
-    catchError(this.errorHandl)
-  );
+  getUser(id: number): Observable<User>{
+    return this.http.get<User>('http://dbserver3/lttt/employee/'+id).pipe(
+      //retry(1),
+      map((u: any) => u),
+      catchError(this.errorHandl)
+    );
   }
 
-  getUsers(division?:string, subdivision?:string,name?:string):Observable<User[]>{
-    return this.http.get('url').pipe(
-      map((data:any) => data.map(item => this.adapter.adapt(item))),
-    retry(1),
+  getUsers(division?: string, subdivision?: string,name?: string): Observable<User[]>{
+    return this.http.get<User[]>('url').pipe(retry(1),
     catchError(this.errorHandl)
-  );
+    );
   }
 
   addUser(user:User):Observable<User>{
-    return this.http.post('url',JSON.stringify(user.toJson())).pipe(
-      map((data:any)=>data.map(item => this.adapter.adapt(item))),
-    retry(1),catchError(this.errorHandl)
-  );
+    return this.http.post<User>('url',JSON.stringify(user)).pipe(retry(1),
+    catchError(this.errorHandl)
+    );
   }
 
   deleteUser(id:number){
-     return this.http.delete('url').pipe(
-       map((data:any) => data.map(item => this.adapter.adapt(item))),
-       retry(1),catchError(this.errorHandl)
-     )
+    return this.http.delete('url').pipe(retry(1),catchError(this.errorHandl)
+    )
   }
-
 }

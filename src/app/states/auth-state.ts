@@ -2,15 +2,15 @@ import {State,Selector,Action,StateContext} from '../../../node_modules/@ngxs/st
 import {AuthService} from '../services/auth-service.service';
 import {Signin, Signout} from './auth-actions';
 import { tap } from 'rxjs/operators';
+import { GetUser } from './user-actions';
 
 
 // Auth State Model
 export class AuthStateModel {
   // if you have an extra token like authorization, you can add it here plus any other user information you might want to store
   token?: string;
-  email?: string;
-  name?: string;
-  refreshToken?: any;
+  authorization?: string;
+  id?:number;
 }
 
 
@@ -24,29 +24,21 @@ export class AuthState {
   }
 
   @Selector()
-  static userDetails(state: AuthStateModel) {
-    return {
-      name: state.name,
-      email: state.email
-    };
-  }
-
-  @Selector()
-  static refreshToken(state: AuthStateModel) {
-    return state.refreshToken;
+  static id(state: AuthStateModel) {
+    return state.id;
   }
 
   constructor(private authService: AuthService) {}
 
   @Action(Signin)
   login(
-    { patchState }: StateContext<AuthStateModel>,
+    { patchState, dispatch, getState}: StateContext<AuthStateModel>,
     {payload}: Signin
   ) {
     return this.authService.signin(payload).pipe(
       tap(result => {
         patchState({
-          token: result.token, name: payload.username
+          token: result.token, id:result.empId, authorization: result.emptype
         });
       })
     );
@@ -61,5 +53,4 @@ export class AuthState {
       })
     );
   }
-
 }

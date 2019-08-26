@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../models/UserModel';
-import{UserService} from '../services/user.service';
+import { Store } from '@ngxs/store';
+import { GetUser } from '../states/user-actions';
+import { AuthState } from '../states/auth-state';
+import { UserState } from '../states/user-state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +13,12 @@ import{UserService} from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  user:User;
-
-  constructor(private data: UserService) { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
-   
-  }
+    const id = 1;
 
+    console.log(id);
+    this.store.dispatch(new GetUser(id));
+  }
 }

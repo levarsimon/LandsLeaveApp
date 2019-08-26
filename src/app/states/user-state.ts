@@ -3,6 +3,7 @@ import {User} from '../models/UserModel';
 import { GetUser, DeleteUser } from './user-actions';
 import { tap } from 'rxjs/operators';
 import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
 
 export interface UserStateModel{
   user: User;
@@ -23,16 +24,14 @@ static user(state:UserStateModel){
 }
 
 @Action(GetUser)
-getUser({getState, setState}:StateContext<UserStateModel>,{id}:GetUser){
+getUser({patchState}:StateContext<UserStateModel>,{id}:GetUser){
+  console.log(id)
   return this.userService.getUser(id).pipe(tap(result => {
-    const state= getState();
-    setState({
-      ...state,
+    patchState({
       user: result
     });
   }));
 }
-
 
 @Action(DeleteUser)
 deleteUser({getState, setState}:StateContext<UserStateModel>, {id}: DeleteUser){
@@ -45,6 +44,4 @@ deleteUser({getState, setState}:StateContext<UserStateModel>, {id}: DeleteUser){
     });
   }));
 }
-
-
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subdivision, SubdivisionAdapter} from '../models/Subdivision';
+import { Subdivision } from '../models/Subdivision';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { retry, catchError, map } from 'rxjs/operators';
 })
 export class SubdivisionsService {
 
-  constructor(private http: HttpClient, private adapter: SubdivisionAdapter) { }
+  constructor(private http: HttpClient) { }
 
   errorHandl(error) {
   let errorMessage = '';
@@ -30,10 +30,8 @@ httpOptions={
   })
 }
 
-  getSubdivisions():Observable<Subdivision>{
-    return this.http.get('url').pipe(
-      map((data:any) => data.map(item => this.adapter.adapt(item))),
-      retry(1),
+  getSubdivisions(): Observable<Subdivision>{
+    return this.http.get<Subdivision>('url').pipe(retry(1),
       catchError(this.errorHandl)
   );
   }

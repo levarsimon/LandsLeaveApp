@@ -64,6 +64,9 @@ import { AuthGuard } from './services/auth-guard.service';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UserService } from './services/user.service';
+import { UserState } from './states/user-state';
 
 
 @NgModule({
@@ -96,11 +99,12 @@ import { TokenInterceptor } from './services/token.interceptor';
     AppMessageModalComponent,
     AppStaffByNameModalComponent,
     AppStaffBySubdivisionModalComponent,
-    AppStaffByDivisionModalComponent
+    AppStaffByDivisionModalComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot([AuthState]),
+    NgxsModule.forRoot([AuthState, UserState]),
     ClarityModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -132,7 +136,8 @@ import { TokenInterceptor } from './services/token.interceptor';
       provide:HTTP_INTERCEPTORS,
       useClass:TokenInterceptor,
       multi:true
-    }
+    },
+    UserService
   ],
   bootstrap: [AppComponent]
 })

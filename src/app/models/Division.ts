@@ -1,6 +1,6 @@
 export class Division{
-  id: number;
-  managerId:number;
+  divId: number;
+  mngrId:number;
   name:string;
   createdOn: Date;
   createdBy: string;
