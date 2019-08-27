@@ -7,21 +7,20 @@
                 <div class="clr-control-container clr-error">
                     <div class="clr-select-wrapper">
                         <select id="select-leave" class="clr-select" required>
-                            <option value="1">Vacation</option>
-                            <option value="2">Sick</option>
-                            <option value="3">Study</option>
-                            <option value="4">Special</option>
-                        </select>
-                        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                    </div>
-                    <span class="clr-subtext">This is required</span>
+                            <option value="vacation">Vacation</option>
+                            <option value="sick">Sick</option>
+                            <option value="study">Study</option>
+                            <option value="special">Special</option>                            
+                        </select>                        
+                    </div>                    
                 </div>
             </div>
   
             <clr-textarea-container>
                 <label>Reason for leave request</label>
                 <textarea clrTextarea  rows="4" cols="40" placeholder="Type reason here" formControlName="reason"></textarea>
-                <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
+                <clr-control-error *clrIfError="'required'">Reason is required!</clr-control-error>
+                <clr-control-error *clrIfError="'minlength'">Reason must be at least 8 characters long!</clr-control-error>
             </clr-textarea-container>
             <br />
             <clr-input-container>

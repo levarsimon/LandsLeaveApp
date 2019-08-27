@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 import {Leave} from '../models/Leave';
 
 @Component({
@@ -7,7 +7,7 @@ import {Leave} from '../models/Leave';
   templateUrl: './leave-form.component.html',
   styleUrls: ['./leave-form.component.scss']
 })
-export class LeaveFormComponent implements OnInit {
+export class LeaveFormComponent implements OnInit {  
 
   requestForm: FormGroup;
   feedback: Leave;
@@ -21,10 +21,10 @@ export class LeaveFormComponent implements OnInit {
 
   createForm() {
     this.requestForm = this.formBuilder.group({
-      type:['',Validators.required],
-      reason: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required]
+      type: new FormControl('',Validators.required),
+      reason: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      startDate: new FormControl('', Validators.required),
+      endDate: new FormControl('', Validators.required)
     });
   }
 
