@@ -1,26 +1,26 @@
 <clr-main-container>
     <div class="content-container">
         <div class="content-area">
-            <form clr-form [formGroup]="registerForm" #fform="ngForm" style="padding:20px;"(ngSubmit)="onSubmit()">
-                <!--clr-input-container>
+            <form clrForm [formGroup]="registerForm" #fform="ngForm" style="padding:20px;" (ngSubmit)="onSubmit()">
+                <clr-input-container>
                     <label>First Name</label>
-                    <input clrInput type="text" placeholder="First Name" formControlName="firstName" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="text" placeholder="First Name" formControlName="firstName"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>
                 <clr-input-container>
                     <label>Last Name</label>
-                    <input clrInput type="text" placeholder="Last Name" formControlName="lastName" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="text" placeholder="Last Name" formControlName="lastName"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>
                 <clr-input-container>
                     <label>Date of Birth</label>
-                    <input clrInput type="date" placeholder="Date of Birth" name="dob" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="date" placeholder="Date of Birth" formControlName="dob"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>
                 <clr-input-container>
                     <label>Email Address</label>
-                    <input clrInput type="email" placeholder="Email Address" name="email" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="email" placeholder="Email Address" name="email"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>
                 <clr-select-container>
                     <label>Position</label>
@@ -29,16 +29,16 @@
                         <option value="Supervisor">Supervisor</option>
                         <option value="Manager">Manager</option>
                     </select>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-select-container>
                 <clr-input-container>
                     <label>Job Title</label>
-                    <input clrInput type="text" placeholder="Job Title" name="jobTitle" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="text" placeholder="Job Title" name="jobTitle"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>
                 <clr-select-container>
                     <label>Employee Band</label>
-                        <select clrSelect name="employeeBand" required>
+                        <select clrSelect name="employeeBand">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -47,19 +47,19 @@
                             <option value="6">6</option>
                             <option value="7">7</option>
                         </select>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-select-container>
                 <clr-input-container>
                     <label>Username</label>
-                    <input clrInput type="text" placeholder="Username" formControlName="username" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="text" placeholder="Username" formControlName="username"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>
                 <clr-input-container>
                     <label>Password</label>
-                    <input clrInput type="password" placeholder="Password" formControlName="password" required/>
-                    <clr-contol-error>This field is required!</clr-contol-error>
+                    <input clrInput type="password" placeholder="Password" formControlName="password"/>
+                    <clr-control-error *clrIfError="required">This field is required!</clr-control-error>
                 </clr-input-container>                
-                <br /-->
+                <br />
                 <button class="btn btn-success" type="submit">Register</button>
                 <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>                
             </form>

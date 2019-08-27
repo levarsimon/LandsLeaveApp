@@ -61,4 +61,30 @@ export class SickLeave{
   medicalApproved:boolean;
   NISSent: boolean;
   NISReceived: boolean;
+
+  constructor(id,leaveId,medicalApproved,NISSent,NISReceived){
+
+  }
+
+  toJson():any{
+      return {
+        SickLevID:this.id,
+        LevID: this.leaveId,
+        MedicalApprv:this.medicalApproved,
+        NISSent:this.NISSent,
+        NISReceived:this.NISReceived
+      }
+  }
+}
+
+export class SickLeaveAdapter{
+  adapt(item:any):SickLeave{
+    return new SickLeave(
+      item.SickLevID,
+      item.LevID,
+      item.MedicalApprv,
+      item.NISSent,
+      item.NISReceived
+    );
+  }
 }

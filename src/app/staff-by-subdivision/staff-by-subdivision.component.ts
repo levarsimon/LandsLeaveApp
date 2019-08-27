@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
-import { AppStaffBySubdivisionModalComponent } from './modal.component';
+import { Component, OnInit } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { EmployeesState } from '../states/employees-state';
+import { User } from '../models/UserModel';
 
 @Component({
   selector: 'app-staff-by-subdivision',
@@ -9,22 +10,9 @@ import { AppStaffBySubdivisionModalComponent } from './modal.component';
 })
 export class StaffBySubdivisionComponent implements OnInit {
 
-  @ViewChild(AppStaffBySubdivisionModalComponent, {static: true}) modal: AppStaffBySubdivisionModalComponent;
-
-  searchForm: FormGroup;
+  @Select(EmployeesState) employees$: User[];
 
   constructor() { }
-
-  submit() {
-    if (this.searchForm.valid) {
-      console.log(this.searchForm.value);
-      this.searchForm.reset();
-    }
-  }
-
-  resetForm() {
-    this.searchForm.reset();
-  }
 
   ngOnInit() {
   }

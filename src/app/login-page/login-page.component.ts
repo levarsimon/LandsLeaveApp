@@ -50,7 +50,7 @@ export class LoginPageComponent implements OnInit {
     this.authservice.signin(credentials)
     .subscribe(result => {
     if (result)
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     else
       this.invalidLogin = true;
     });  

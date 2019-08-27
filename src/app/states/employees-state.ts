@@ -15,7 +15,7 @@ export interface EmployeesStateModel{
 export class EmployeesState{
 
   constructor(private userService: UserService){
-    
+
   }
 
   @Selector()
@@ -23,12 +23,11 @@ export class EmployeesState{
     return state.users;
   }
 
+
   @Action(GetEmployees)
-  getEmployees({getState, setState}:StateContext<EmployeesStateModel>){
+  getEmployees({patchState}:StateContext<EmployeesStateModel>){
     return this.userService.getUsers().pipe(tap(result => {
-      const state= getState();
-      setState({
-        ...state,
+      patchState({
         users: result
       });
     }));

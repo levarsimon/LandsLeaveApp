@@ -6,11 +6,13 @@
           <div class="clr-row clr-justify-content-between" style="margin:10px;">
             <div class="clr-col-3">
               <h4 style="font-weight:bold;"></h4>
-              <span></span>
+              <span>{{user.jobTitle}}</span>
             </div>
             <div class="clr-col-3">
               <h6></h6>
+              <h5 *ngIf="user.onLeave" href="apply/resumption">You are currently on leave.</h5>
               <a *ngIf="user.onLeave" href="apply/resumption"><button class="btn btn-primary">Resume</button></a>
+              <h5 *ngIf="!user.onLeave" href="/apply/leave">You are currently on duty.</h5>
               <a *ngIf="!user.onLeave" href="/apply/leave"><button class="btn btn-primary">Leave</button></a>
             </div>
           </div>

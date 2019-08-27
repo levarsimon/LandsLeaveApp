@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 export class Login{
-  authorization?:string;
-  userId?:number;
+  emptype?:string;
+  empId?:number;
   token?: string;
 
   constructor(userType,userId,token){
-    this.authorization=userType;
-    this.userId=userId;
+    this.emptype=userType;
+    this.empId=userId;
     this.token=token;
   }
 }
@@ -19,9 +19,9 @@ export class LoginAdapter{
 
   adapt(item:any):Login{
     return new Login(
-      item.EMPType,
-      item.EmpId,
-      item.Token
+      item.emptype,
+      item.empId,
+      item.token
     );
   }
 }

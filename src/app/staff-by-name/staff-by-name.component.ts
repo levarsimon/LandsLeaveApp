@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
-import { AppStaffByNameModalComponent } from './modal.component';
+import { Component, OnInit } from '@angular/core';
+import { EmployeesState } from '../states/employees-state';
+import { Select } from '@ngxs/store';
+import { User } from '../models/UserModel';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-staff-by-name',
@@ -8,25 +11,19 @@ import { AppStaffByNameModalComponent } from './modal.component';
   styleUrls: ['./staff-by-name.component.scss']
 })
 export class StaffByNameComponent implements OnInit {
+  
+  @Select(EmployeesState) employees$: Observable<User[]>;
 
-  @ViewChild(AppStaffByNameModalComponent, {static: true}) modal: AppStaffByNameModalComponent;
-
-  searchForm: FormGroup;
+  employees:Observable<User[]>;
 
   constructor() { }
 
-  submit() {
-    if (this.searchForm.valid) {
-      console.log(this.searchForm.value);
-      this.searchForm.reset();
-    }
-  }
-
-  resetForm() {
-    this.searchForm.reset();
-  }
-
+  
   ngOnInit() {
+  }
+
+  getSubdivisionEmployees(id:number){
+    this.employees= this.employees$.pipe(map(employees$ => employees$.filter(employees$ => employees$.subdiv.subDivId=id)));
   }
 
 }

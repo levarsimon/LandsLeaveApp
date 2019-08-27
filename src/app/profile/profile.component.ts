@@ -13,11 +13,10 @@ import { GetUser } from '../states/user-actions';
 })
 export class ProfileComponent implements OnInit {
 
-  user: Observable<User>;
-  userLeaveRecord: Observable<leaveTaken>;
+  @Select(UserState.user) user$: User;
 
-  constructor(private store: Store) {
-    this.user = this.store.select(UserState => UserState.user);
+  constructor() {
+    
   }
 
   ngOnInit() {

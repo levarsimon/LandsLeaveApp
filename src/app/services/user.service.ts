@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/UserModel';
+import {User} from '../models/UserModel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,) {
 
    }
 
@@ -33,28 +32,33 @@ httpOptions={
   })
 }
 
-  getUser(id: number): Observable<User>{
+  getUser(id:number):Observable<User>{
     return this.http.get<User>('http://dbserver3/lttt/employee/'+id).pipe(
-      //retry(1),
-      map((u: any) => u),
-      catchError(this.errorHandl)
-    );
+    //retry(1),
+    map(
+      (u: any) => u
+    ),
+    catchError(this.errorHandl)
+  );
   }
 
-  getUsers(division?: string, subdivision?: string,name?: string): Observable<User[]>{
-    return this.http.get<User[]>('url').pipe(retry(1),
+  getUsers():Observable<User[]>{
+    return this.http.get<User[]>('http://dbserver3/lttt/employee/getall').pipe(
+    //retry(1),
     catchError(this.errorHandl)
-    );
+  );
   }
 
   addUser(user:User):Observable<User>{
-    return this.http.post<User>('url',JSON.stringify(user)).pipe(retry(1),
+    return this.http.post<User>('url',JSON.stringify(user)).pipe(
+    retry(1),
     catchError(this.errorHandl)
-    );
+  );
   }
 
   deleteUser(id:number){
-    return this.http.delete('url').pipe(retry(1),catchError(this.errorHandl)
-    )
+     return this.http.delete('url').pipe(
+       retry(1),catchError(this.errorHandl)
+     )
   }
 }

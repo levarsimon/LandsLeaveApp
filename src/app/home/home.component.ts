@@ -15,10 +15,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private store: Store) { }
 
-  ngOnInit() {
-    const id = 1;
-
-    console.log(id);
-    this.store.dispatch(new GetUser(id));
+  ngOnInit() {    
   }
 }

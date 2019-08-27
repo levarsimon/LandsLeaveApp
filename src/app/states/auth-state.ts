@@ -13,7 +13,6 @@ export class AuthStateModel {
   id?:number;
 }
 
-
 @State<AuthStateModel>({
   name: 'auth' // the name of our state
 })
@@ -40,6 +39,9 @@ export class AuthState {
         patchState({
           token: result.token, id:result.empId, authorization: result.emptype
         });
+
+        const state= getState();
+        dispatch(new GetUser(state.id))
       })
     );
   }
@@ -53,4 +55,5 @@ export class AuthState {
       })
     );
   }
+
 }

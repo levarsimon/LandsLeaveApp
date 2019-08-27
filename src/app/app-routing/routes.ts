@@ -7,10 +7,10 @@ import {LeaveRequestComponent} from '../leave-request/leave-request.component';
 import {MessagesComponent} from '../messages/messages.component';
 
 export const routes: Routes = [
-  {path: 'home',  component: HomeComponent },
-  {path: 'profile', component: ProfileComponent },
-  {path: 'login', component: LoginPageComponent },
-  {path: 'requests', component: LeaveRequestComponent},
-  {path: 'messages', component: MessagesComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full' }   
+  { path: 'home',  component: HomeComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'login', component: LoginPageComponent },
+  {path:'requests', component: LeaveRequestComponent},
+  {path:'messages', component: MessagesComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
