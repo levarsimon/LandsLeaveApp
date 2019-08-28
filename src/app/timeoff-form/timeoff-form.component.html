@@ -18,13 +18,15 @@
             <br />
             <clr-input-container>
                 <label>Start Time</label>
-                <input clrInput type="datetime" placeholder="Start time" formControlName="startTime"/>      
+                <input clrInput [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Start time" formControlName="startTime"/>      
+                <owl-date-time [pickerType]="'timer'" #dt></owl-date-time>
                 <clr-control-error *clrIfError="required">Start time is required!</clr-control-error>
             </clr-input-container>
             <br />
             <clr-input-container>
                 <label>End Time</label>
-                <input clrInput type="datetime" placeholder="End time" formControlName="endTime"/>     
+                <input clrInput [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" placeholder="End time" formControlName="endTime"/>     
+                <owl-date-time [pickerType]="'timer'" #dt1></owl-date-time>
                 <clr-control-error *clrIfError="required">End time is required!</clr-control-error>
             </clr-input-container>
             <br />
