@@ -3,13 +3,15 @@ import { HttpClient, HttpHeaders } from '../../../node_modules/@angular/common/h
 import { Observable, of, throwError } from 'rxjs';
 import { map, retry, catchError } from 'rxjs/operators';
 import { LoginAdapter, Login} from '../models/Login';
+import { Store } from '@ngxs/store';
+import { AuthState } from '../states/auth-state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient,private adapter: LoginAdapter) {
+  constructor(private http: HttpClient,private adapter: LoginAdapter,private _store:Store) {
   }
 
   httpOptions = {
@@ -31,22 +33,19 @@ export class AuthService {
    return throwError(errorMessage);
 }
 
-
 signin(credentials):Observable<Login> {
-  return this.http.post('http://dbserver3/lttt/api/employee/authenticate',
+  return this.http.post('http://dbserver3/lttt/employee/authenticate',
     JSON.stringify(credentials),this.httpOptions).pipe(
-      map((data:any)=> data.map(item=> this.adapter.adapt(item))),
       retry(1),
       catchError(this.errorHandl)
     );
-
 }
 
  notifyLogin(credentials){
 
-   let result= this.signin(credentials)['_body'];
+   const token = this._store.selectSnapshot(AuthState.token);
 
-   if (result && result.token){
+   if (token){
      return true;
    }else{
      return false;

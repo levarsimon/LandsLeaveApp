@@ -5,10 +5,10 @@
             <clr-input-container>
                 <label>Resumption Date</label>
                 <input clrInput type="date" id="resumptionDate" placeholder="Resumption date" formControlName="resumptionDate"/>
-                <clr-control-error *clrIfError="required">Start date required</clr-control-error>
+                <clr-control-error *clrIfError="'required'">Resumption date is required!</clr-control-error>
             </clr-input-container>
             <br />
-            <button class="btn btn-sm btn-success" type="submit">Submit</button>
+            <button class="btn btn-sm btn-success" type="submit" [disabled]="!resumptionForm.valid">Submit</button>
             <button class="btn btn-sm btn-danger" type="button" (click)="resetForm()">Reset</button>
         </form>
     </div>

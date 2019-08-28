@@ -1,20 +1,18 @@
 <div class="clr-row">
     <div class="clr-col">
       <form clrForm [formGroup]="requestForm" #fform="ngForm" style="padding:20px;" (ngSubmit)="onSubmit()">
-          <h1>Leave Application Form</h1>
-            <div class="clr-form-control clr-row">
-                <label for="select-leave" class="clr-control-label">Select Type of Leave</label>
-                <div class="clr-control-container clr-error">
-                    <div class="clr-select-wrapper">
-                        <select id="select-leave" class="clr-select" required>
-                            <option value="vacation">Vacation</option>
-                            <option value="sick">Sick</option>
-                            <option value="study">Study</option>
-                            <option value="special">Special</option>                            
-                        </select>                        
-                    </div>                    
-                </div>
-            </div>
+            <h1>Leave Application Form</h1>
+            
+            <clr-select-container>
+                <label>Select type of leave</label>
+                <select clrSelect name="options" formControlName="type">
+                    <option value="vacation">Vacation</option>
+                    <option value="sick">Sick</option>
+                    <option value="study">Study</option>
+                    <option value="special">Special</option>
+                </select>                
+                <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+            </clr-select-container>
   
             <clr-textarea-container>
                 <label>Reason for leave request</label>
@@ -35,7 +33,7 @@
                 <clr-control-error *clrIfError="required">End date required</clr-control-error>
             </clr-input-container>
             <br />
-            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-success" type="submit" [disabled]="!requestForm.valid">Submit</button>
             <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>
         </form>
     </div>

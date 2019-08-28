@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Register } from '../models/Register';
 
 @Component({
@@ -21,15 +21,15 @@ export class RegisterComponent implements OnInit {
 
   createForm() {
     this.registerForm = this.formBuilder.group({
-      firstName:['',Validators.required],
-      lastName: ['', Validators.required],
-      dob: ['', Validators.required],
-      email: ['', Validators.required],
-      position:['',Validators.required],
-      jobTitle: ['', Validators.required],
-      employeeBand: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      firstName: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.pattern('^(?=.*[a-zA-Z])+$')])),
+      lastName: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.pattern('^(?=.*[a-zA-Z])+$')])),
+      dob: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
+      position: new FormControl('', Validators.required),
+      jobTitle: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-zA-Z0-9])+$')])),
+      employeeBand: new FormControl('', Validators.required),
+      username: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])),
+      password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)]))
     });
   }
 

@@ -6,23 +6,29 @@
             <clr-textarea-container>
                 <label>Reason for timeoff</label>
                 <textarea clrTextarea  rows="4" cols="40" placeholder="Type reason here" formControlName="reason"></textarea>
-                <clr-control-error *clrIfError="required">Reason is required</clr-control-error>
+                <clr-control-error *clrIfError="'required'">Reason is required!</clr-control-error>
                 <clr-control-error *clrIfError="'minlength'">Reason must be at least 8 characters long!</clr-control-error>
             </clr-textarea-container>
             <br />
             <clr-input-container>
-                <label>Start date</label>
-                <input clrInput type="datetime" placeholder="Start date" formControlName="startDate"/>      
-                <clr-control-error *clrIfError="required">Start date required</clr-control-error>
+                <label>Date</label>
+                <input clrInput type="date" placeholder="Date" formControlName="date"/>      
+                <clr-control-error *clrIfError="required">Date is required!</clr-control-error>
             </clr-input-container>
             <br />
             <clr-input-container>
-                <label>End date</label>
-                <input clrInput type="datetime" placeholder="End date" formControlName="endDate"/>     
-                <clr-control-error *clrIfError="required">End date required</clr-control-error>
+                <label>Start Time</label>
+                <input clrInput type="datetime" placeholder="Start time" formControlName="startTime"/>      
+                <clr-control-error *clrIfError="required">Start time is required!</clr-control-error>
             </clr-input-container>
             <br />
-            <button class="btn btn-success" type="submit">Submit</button>
+            <clr-input-container>
+                <label>End Time</label>
+                <input clrInput type="datetime" placeholder="End time" formControlName="endTime"/>     
+                <clr-control-error *clrIfError="required">End time is required!</clr-control-error>
+            </clr-input-container>
+            <br />
+            <button class="btn btn-success" type="submit" [disabled]="!requestForm.valid">Submit</button>
             <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>
         </form>
     </div>

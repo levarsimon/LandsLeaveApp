@@ -30,7 +30,7 @@ export class LeaveRequestsState{
     {patchState}: StateContext<RequestsStateModel>,
     payload: number
   ){
-    return this.requestService.getLeave(payload).pipe(
+    return this.requestService.getLeave().pipe(
       tap(result =>{
         patchState({
           leaveRequests: result
