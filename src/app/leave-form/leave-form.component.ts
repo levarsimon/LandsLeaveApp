@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from "@angular/forms";
 import {Leave} from '../models/Leave';
 
 @Component({
@@ -10,8 +10,7 @@ import {Leave} from '../models/Leave';
 export class LeaveFormComponent implements OnInit {  
 
   requestForm: FormGroup;
-  feedback: Leave;
-  currentDate: Date = new Date();
+  feedback: Leave;  
  
   @ViewChild('rform',{static:false}) requestFormDirective;
   
@@ -26,37 +25,24 @@ export class LeaveFormComponent implements OnInit {
       type: new FormControl('',Validators.required),
       reason: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
       startDate: new FormControl('', Validators.required),
-      endDate: new FormControl('', Validators.required)
-    }, {validator: this.dateBeforeCheck('currentDate', 'startDate')},//{validator: this.dateLessThan('startDate', 'endDate')},
+      endDate: new FormControl('', Validators.required)      
+    }, {validator: this.dateLessThan('startDate', 'endDate')},
     );
   }
 
-  dateLessThan(from: string, to: string) {
+  dateLessThan(from: string, to: string) {    
     return (group: FormGroup): {[key: string]: any} => {
       let f = group.controls[from];
-      let t = group.controls[to];
+      let t = group.controls[to];      
       if (f.value > t.value) {
         return {
           dates: "Start Date should be less than End Date"
         };
-      }
-      return {};
+      }      
+      return {};    
     }
   }
 
-  dateBeforeCheck(currentDate: String, startDate: String) {
-    return (group: FormGroup): {[key: string]: any} => {
-      let d1 = group.controls[currentDate];
-      let d2 = group.controls[startDate];
-      if (d1.value > d2.value) {
-        return {
-          dates: "Start Date has already passed"
-        };
-      }
-      return{};
-    }
-  }
-  
   onSubmit() {
     this.feedback = this.requestForm.value;
     this.requestForm.reset({
