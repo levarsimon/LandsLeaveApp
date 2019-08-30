@@ -31,7 +31,8 @@
             <clr-input-container>
                 <label>End date</label>
                 <input clrInput type="date" placeholder="End date" formControlName="endDate"/>
-                <clr-control-error *clrIfError="required">End date required!</clr-control-error>
+                <clr-control-error *clrIfError="'required'">End date required!</clr-control-error>
+                <clr-control-error *clrIfError="requestForm.get('endDate').errors.validator">End date must be after start date!</clr-control-error>
             </clr-input-container>
             <br />
             <button class="btn btn-success" type="submit" [disabled]="!requestForm.valid">Submit</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
+import { DateValidator } from '../custom-validator/custom-validator';
 
 @Component({
   selector: 'app-timeoff-form',
@@ -14,10 +15,14 @@ export class TimeoffFormComponent implements OnInit {
 
     this.requestForm = this.formBuilder.group({      
       reason: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
-      date: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.compose([Validators.required, DateValidator])),
       startTime: new FormControl('', Validators.required),
       endTime: new FormControl('', Validators.required)
     });
+  }  
+
+  get date() {
+    return this.requestForm.get('date');
   }
 
   submit() {

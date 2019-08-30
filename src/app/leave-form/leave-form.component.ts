@@ -40,7 +40,7 @@ export class LeaveFormComponent implements OnInit {
           dates: "Start Date should be before the End Date"
         };
       }      
-      return {};    
+      return {};
     }
   }
 

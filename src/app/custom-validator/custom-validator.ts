@@ -1,10 +1,11 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 
 
 export function DateValidator(control: AbstractControl): {[key: string]: boolean} | null {
     let currentDate = new Date();
     let start = new Date(control.value);
+   
     if (currentDate > start) {
         return {
             dateCheck: true
@@ -14,7 +15,7 @@ export function DateValidator(control: AbstractControl): {[key: string]: boolean
 }
 
 
-// custom validator to check that two fields match
+
 export function PasswordsMustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
         const control = formGroup.controls[controlName];
