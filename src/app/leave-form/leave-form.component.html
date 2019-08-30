@@ -24,13 +24,14 @@
             <clr-input-container>
                 <label>Start date</label>                
                 <input clrInput type="date" placeholder="Start date" formControlName="startDate"/>                
-                <clr-control-error *clrIfError="required">Start date required</clr-control-error>
+                <clr-control-error *clrIfError="'required'">Start date required!</clr-control-error>
+                <clr-control-error *clrIfError="requestForm.get('startDate').errors.DateValidator">Start Date has already passed!</clr-control-error>
             </clr-input-container>
             <br />
             <clr-input-container>
                 <label>End date</label>
                 <input clrInput type="date" placeholder="End date" formControlName="endDate"/>
-                <clr-control-error *clrIfError="required">End date required</clr-control-error>
+                <clr-control-error *clrIfError="required">End date required!</clr-control-error>
             </clr-input-container>
             <br />
             <button class="btn btn-success" type="submit" [disabled]="!requestForm.valid">Submit</button>

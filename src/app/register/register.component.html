@@ -70,7 +70,14 @@
                     <input clrInput type="password" placeholder="Password" formControlName="password"/>
                     <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
                     <clr-control-error *clrIfError="'minlength'">Password must be at least 8 characters long!</clr-control-error>
-                </clr-input-container>                
+                </clr-input-container>
+                <clr-input-container>
+                    <label>Confirm Password</label>
+                    <input clrInput type="password" placeholder="Retype Password" formControlName="confirmPassword"/>
+                    <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+                    <clr-control-error *clrIfError="'minlength'">Password must be at least 8 characters long!</clr-control-error>
+                    <clr-control-error *clrIfError="'f.confirmPassword.errors.mustMatch'">Passwords do not match!</clr-control-error>
+                </clr-input-container> 
                 <br />
                 <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Register</button>
                 <button class="btn btn-danger" type="button" (click)="resetForm()">Reset</button>                
